@@ -5,11 +5,11 @@ import "sync"
 //Заказ на доставку товара
 
 type Order struct {
-	ID               int       //номер зкакза
-	IsOpen           bool      // открыт/закрыт
-	DeliveryTime     int64     //срок доставки
-	DeliveeryAddress string    // адресс доставки
-	Products         []Product //состав заказа
+	ID              int       //номер зкакза
+	IsOpen          bool      // открыт/закрыт
+	DeliveryTime    int64     //срок доставки
+	DeliveryAddress string    // адресс доставки
+	Products        []Product //состав заказа
 }
 
 // Товар
@@ -43,7 +43,7 @@ func (db *DB) Orders() []Order {
 }
 
 //NewOrder создает новый заказ
-func (db *DB) NewOrdere(o Order) int {
+func (db *DB) NewOrder(o Order) int {
 	db.m.Lock()
 	defer db.m.Unlock()
 	o.ID = db.id
